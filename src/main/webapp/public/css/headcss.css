@@ -1,0 +1,48 @@
+﻿*{padding:0;margin: 0;font:12px normal;}
+a:link,a:visited{border-bottom: none;color: black;}
+a{text-decoration: none;}
+/*顶部*/
+.puthead{border-bottom: 2px solid #1e63b0;height: 40px;}
+.head{border-bottom: 2px solid #1e63b0;height: 40px;width: 1000px;margin: auto;}
+.head1{display:flex;height:60px;width: 1000px;margin: 0 auto;}
+/*搜索*/
+.searchcss{margin-left:300px; display:inline-table;}
+.searchcss1{border: none;height: 40px;width: 280px;}
+.searchcss2{cursor:pointer;border-bottom: none;border-right: none;border-top: none;height: 40px;width: 60px;background-color: white;}
+/*登录*/
+.login{float: right;margin-left:20px;}
+.a{padding:5px;height:150px;}
+.c{display: block;margin: 10px 0 0 30px;width: 35px;height: 40px;}
+.b{margin-top: -20px; display: none;height:170px;line-height: 25px;border-top:none;padding:5px;position:absolute;background-color: white;width: 250px;}
+.bz{padding-bottom: 10px;}
+.logininput{height: 30px;width:198px;text-align: start;border: 1px solid #D0D0D0;background-color: white;}
+.loginbutton{height: 30px;width: 50px;background-color: #1e63b0;border: none;}
+.autologin{font-size: xx-small;}
+/*顶部首页*/
+.home{margin-top: 15px;border-left: solid 1px;padding-left: 15px;height: 15px;}
+/*顶部投稿*/
+.editherf{margin-top: 10px;}
+/*广告栏*/
+.advbar{margin: 25px auto 5px auto;width: 1000px;}
+/*导航*/
+.putnav{display: block;background-color: #1e63b0;height: 60px;}
+nav{display: block;background-color: #1e63b0;height: 60px;width: 1000px;margin: auto;}
+nav ul{list-style-type:none;padding:0;overflow: hidden;width: 900px;margin:0 auto;}
+nav ul li{float: left;}
+nav ul li table{border-collapse: collapse;}
+nav ul li table tbody{display: table-row-group;}
+nav ul li table tbody tr{height: 30px;display: table-row;}
+nav ul li table tbody tr td{display: table-cell;}
+nav ul li table tbody tr td a{width: 60px; display:inline-block; font-size: 14px;text-align: center;cursor: pointer;color: #ffffff;font-family: 宋体;font-style: normal;}
+/*注册*/
+#tabs {width:290px;padding:5px;height:150px;margin:20px;}
+#tabs ul{list-style:none;display: block;height:30px;line-height:30px;border-bottom:2px saddlebrown solid;}
+#tabs ul li{background:#fff;cursor:pointer;float:left;list-style:none;height:28px;line-height:28px;margin:0 3px;border:1px solid #aaaaaa;border-bottom:none;display:inline-block;width:60px;text-align: center;}
+#tabs ul li.on{border-top:2px solid saddlebrown;border-bottom: 2px solid #fff;}
+#tabs div{height:120px;line-height: 25px;border:1px solid #336699;border-top:none;padding:5px;}
+.hide{display: none;}
+
+/*修改密码*/
+.warn{color: red;}
+
+.bodymain{width: 1000px;margin: auto}

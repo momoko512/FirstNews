@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+-->
+<mapper namespace="FirstNews.mybatis.contributemapper">
+    <!--将投稿存入contribute表-->
+    <insert id="add" parameterMap="Contribute" parameterType="FirstNews.mybean.Contribute">
+        INSERT INTO contribute (name, title, detail, image, review, pass)
+        VALUES (#{name}, #{title}, #{detail}, #{image}, #{review}, #{pass})
+    </insert>
+    <!--倒序搜索N条review=0的contribute-->
+    <select id="getbyn" parameterType="int" resultMap="Contribute">
+        SELECT *
+        FROM contribute
+        WHERE review = 0
+        ORDER BY id DESC
+        LIMIT 0, #{n}
+    </select>
+    <!--倒序搜索N条pass=1的contribute-->
+    <select id="getbypass" parameterType="int" resultMap="Contribute">
+        SELECT *
+        FROM contribute
+        WHERE pass = 1
+        ORDER BY id DESC
+        LIMIT 0, #{n}
+    </select>
+    <!--根据用户名搜索-->
+    <select id="getbyname" parameterType="String" resultMap="Contribute">
+        SELECT *
+        FROM contribute
+        WHERE name = #{name}
+    </select>
+    <!--根据id搜索-->
+    <select id="getbyid" parameterType="int" resultMap="Contribute">
+        SELECT *
+        FROM contribute
+        WHERE id = #{id}
+    </select>
+
+    <!--更改审核状态-->
+    <update id="updatereview" parameterMap="Contribute" parameterType="FirstNews.mybean.Contribute">
+        UPDATE contribute
+        SET review = #{review}
+        WHERE id = #{id};
+    </update>
+    <!--更改通过状态-->
+    <update id="updatepass" parameterMap="Contribute" parameterType="FirstNews.mybean.Contribute">
+        UPDATE contribute
+        SET pass = #{pass}
+        WHERE id = #{id};
+    </update>
+    <!--根据id删除-->
+    <delete id="delete" parameterMap="Contribute" parameterType="int">
+        delete FROM contribute WHERE id = #{id};
+    </delete>
+
+
+
+
+    <parameterMap type="FirstNews.mybean.Contribute" id="Contribute">
+        <parameter property="name" resultMap="Contribute"/>
+        <parameter property="title" resultMap="Contribute"/>
+        <parameter property="image" resultMap="Contribute"/>
+        <parameter property="detail" resultMap="Contribute"/>
+        <parameter property="review" resultMap="Contribute"/>
+        <parameter property="pass" resultMap="Contribute"/>
+    </parameterMap>
+    <resultMap type="FirstNews.mybean.Contribute" id="Contribute">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="title" column="title"/>
+        <result property="detail" column="detail"/>
+        <result property="image" column="image"/>
+        <result property="review" column="review"/>
+        <result property="pass" column="pass"/>
+    </resultMap>
+
+
+</mapper>
+
+
+
+
+
+
+

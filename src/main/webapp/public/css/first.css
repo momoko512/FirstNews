@@ -1,0 +1,9 @@
+.bodymain{display: block;width: 1000px;margin: auto;}
+.space{height: 20px;}
+#newsimage{width: 660px;height: 400px;}
+.titles{width: 660px;height: 38px;background-color: #1e63b0;}
+#newstitle{color: white;}
+.left{float: left;margin-right: 20px;}
+.contribute{width: 320px;float: right;margin: 0;padding: 0;}
+.contribute ul{list-style-type: none; border-bottom:1px solid #d9d9d9;border-top: 1px solid #d9d9d9;margin-top: 9px;margin-bottom: 9px;}
+.contribute ul li{height: 30px;}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+-->
+<mapper namespace="FirstNews.mybatis.workmapper">
+    <resultMap type="FirstNews.mybean.Work" id="work">
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+    </resultMap>
+    <parameterMap type="FirstNews.mybean.Work" id="work">
+        <parameter property="name" resultMap="userbyname"/>
+        <parameter property="password" resultMap="userbyname"/>
+    </parameterMap>
+
+    <!--根据name查询得到一个work对象-->
+    <select id="getbyname" parameterType="String"
+            resultMap="work">
+        SELECT *
+        FROM work
+        WHERE name = #{name}
+    </select>
+
+    <!--注册员工存入work表-->
+    <insert id="add" parameterMap="work" parameterType="FirstNews.mybean.Work">
+        INSERT INTO work (name, password) VALUES (#{name}, #{password})
+    </insert>
+</mapper>

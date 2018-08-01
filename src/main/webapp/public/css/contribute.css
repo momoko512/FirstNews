@@ -1,0 +1,10 @@
+/*编辑投稿*/
+.bodymain{width: 850px;margin:5px auto;}
+.contribute ul{list-style: none;}
+.contribute ul li{margin: 20px 0;}
+#title{height: 35px;width: 500px;}
+label{font-size: large;}
+textarea{height: 500px;width: 700px}
+/*输入框圆角*/
+text,textarea{border-radius: 6px;font-size: 15px;}
+.submit{height:30px;width: 50px;display: block;}

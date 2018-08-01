@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FirstNews.mybatis.newsmapper">
+    <!--根据id查询得到一个News对象-->
+    <select id="getNewsbyid" parameterType="int"
+            resultMap="News">
+             select * from news where id=#{id}
+         </select>
+    <!--根据int参数倒序查询得到length=n的News[]-->
+    <select id="getNewsbyn" parameterType="int"
+            resultMap="News">
+        select * from news order by id desc limit 0,#{n}
+    </select>
+    <!--根据传入的String参数在title中搜索-->
+    <select id="searchbyStringtotitle" parameterType="String"
+            resultMap="News">
+    SELECT * FROM news WHERE title LIKE CONCAT('%',#{name},'%')
+    </select>
+    <!--根据传入的String参数在detail中搜索-->
+    <select id="searchbyStringtodetail" parameterType="String"
+            resultMap="News">
+        SELECT * FROM news WHERE detail LIKE CONCAT('%',#{detail},'%')
+    </select>
+    <!--根据传入的String参数在title和detail中搜索-->
+    <select id="searchintitleanddetail" parameterType="String"
+            resultMap="News">
+        SELECT * FROM news WHERE detail LIKE CONCAT('%',#{detail},'%') or title LIKE CONCAT('%',#{name},'%')
+    </select>
+    <!--将审核通过的放进news表-->
+    <insert id="add" parameterMap="News" parameterType="FirstNews.mybean.News">
+        INSERT INTO news (name,title,detail,image) VALUES (#{name},#{title},#{detail},#{image})
+    </insert>
+
+
+
+
+    <parameterMap type="FirstNews.mybean.News" id="News">
+        <parameter property="title" resultMap="News"/>
+        <parameter property="image" resultMap="News"/>
+        <parameter property="detail" resultMap="News"/>
+        <parameter property="name" resultMap="News"/>
+    </parameterMap>
+
+    <resultMap type="FirstNews.mybean.News" id="News">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="detail" column="detail"/>
+        <result property="image" column="image"/>
+        <result property="name" column="name"/>
+    </resultMap>
+</mapper>
+
+
+
+
+
+
+
