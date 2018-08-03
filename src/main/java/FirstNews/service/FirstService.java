@@ -14,7 +14,6 @@ import java.util.List;
 public class FirstService {
     public First showfirst(HttpServletRequest httpServletRequest) throws Exception{
         org.apache.logging.log4j.Logger log = LogManager.getLogger(SimpleExceptionResovler.class);
-        log.error("jinrushowfirst");
         httpServletRequest.setCharacterEncoding("utf-8");
         String uri=httpServletRequest.getRequestURI();
         String suburi=uri.substring(uri.lastIndexOf("/")+1);

@@ -19,6 +19,10 @@
         <div class="head1">
             <!--显示logo-->
             <img class="logo" alt="图片" src="/FirstNews/public/image/logo.jpg">
+            <!--当地天气-->
+            <p id="weather">天气</p>
+            <button id="getweather">点嘛</button>
+            <script src="/FirstNews/public/js/getweather.js"></script>
             <!--搜索框-->
             <span class="searchcss">
     <input id="searchput" class="searchcss1" type="text" name="searchinput" placeholder="大家都在搜"/>

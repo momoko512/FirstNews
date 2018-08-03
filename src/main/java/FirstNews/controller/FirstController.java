@@ -1,5 +1,5 @@
 package FirstNews.controller;
-import FirstNews.controller.exception.UriException;
+
 import FirstNews.mybean.First;
 import FirstNews.service.FirstService;
 import FirstNews.service.ImageService;

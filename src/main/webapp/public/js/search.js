@@ -35,7 +35,7 @@ butt.onclick = function () {
                 document.getElementById("bodymain").innerHTML = text;
             }
         };
-        xmlhttp.open("POST", "http://localhost:8080/FirstNews/search", true);
+        xmlhttp.open("POST", "/FirstNews/search", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(myJSON);
     }

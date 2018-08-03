@@ -16,8 +16,7 @@ public class ImageService {
             OutputStream out = httpServletResponse.getOutputStream();
             out.write(b);
             out.flush();
-            out.close();
-        }catch (Exception e){e.printStackTrace();}
+        }catch (Exception e){}
     }
     public void showFirstImage(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,First first)throws Exception{
         String uri=httpServletRequest.getRequestURI();

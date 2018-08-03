@@ -7,14 +7,11 @@ public class ImageDao {
     private Dao dao=new Dao();
     public void add(Image image){
         String statement = "FirstNews.mybatis.imagemapper.add";
-        SqlSession sqlSession = dao.getSession();
-        sqlSession.insert(statement, image);
-        sqlSession.commit();
-        sqlSession.close();
+        dao.insert(statement, image);
     }
     public Image getbytype(String type) {
         String statement = "FirstNews.mybatis.imagemapper.getbytype";//映射sql的标识字符串
-        return dao.getSession().selectOne(statement, type);
+        return dao.selectOne(statement, type);
     }
     /*
     public News getNewsbyid(int id) {

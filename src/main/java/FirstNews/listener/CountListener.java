@@ -12,7 +12,6 @@ public class CountListener implements HttpSessionListener{
     private int count;
     @Override
     public void sessionCreated(HttpSessionEvent se) {
-        logger.error("sessioncreat"+se.getSession().getId());
         count++;
         se.getSession().getServletContext().setAttribute("count",count);
     }
