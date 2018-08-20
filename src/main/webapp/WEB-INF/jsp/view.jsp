@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
-    <title>FirstNews${news.title}</title>
+    <title>firstnews${news.title}</title>
     <style type="text/css">@import url(/FirstNews/public/css/headcss.css);</style>
 </head>
 <body>

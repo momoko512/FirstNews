@@ -43,6 +43,6 @@
 
 -->
   <listener>
-    <listener-class>FirstNews.listener.CountListener</listener-class>
+    <listener-class>firstnews.listener.CountListener</listener-class>
   </listener>
 </web-app>

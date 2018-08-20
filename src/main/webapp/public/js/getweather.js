@@ -1,26 +1,26 @@
-var getweather = document.getElementById("getweather");
-getweather.onclick = function () {
+function getweather() {
     console.log("getweather");
-    var xmlhttp;
+    var weatherhttp;
     if (window.XMLHttpRequest) {
         // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-        xmlhttp = new XMLHttpRequest();
+        weatherhttp = new XMLHttpRequest();
     }
     else {
         // IE6, IE5 浏览器执行代码
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        weatherhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    xmlhttp.onreadystatechange = function () {
-        console.log("getresponce");
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var k = JSON.parse(xmlhttp.responseText);
-            console.log(k);
-            var text=k.weather.city+":"+k.weather.weatherdetail+k.weather.tempreture;
-            console.log(text);
-            document.getElementById("weather").innerHTML = text;
+    weatherhttp.onreadystatechange = function () {
+        if (weatherhttp.readyState == 4 && weatherhttp.status == 200) {
+            if (weatherhttp.responseText !== null && weatherhttp.responseText !== "") {
+                var weatherjson = JSON.parse(weatherhttp.responseText);
+                if (weatherjson.weather != null && weatherjson.weather !== "") {
+                    var text = weatherjson.weather.city + ":" + weatherjson.weather.weatherdetail + weatherjson.weather.tempreture;
+                    document.getElementById("weather").innerHTML = text;
+                }
+            }
         }
     };
-    xmlhttp.open("POST", "/FirstNews/weather", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send();
+    weatherhttp.open("GET", "/FirstNews/weather", true);
+    weatherhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    weatherhttp.send();
 };

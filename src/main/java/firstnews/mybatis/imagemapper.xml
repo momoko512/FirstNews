@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper  namespace="firstnews.dao.ImageDAO" >
+    <select id="getByid" parameterType="int"
+            resultType="firstnews.domain.Image">
+             select * from image where id=#{id}
+         </select>
+    <select id="getByType" parameterType="String"
+            resultType="firstnews.domain.Image">
+        select * from image WHERE type=#{type} order by id desc
+    </select>
+    <insert id="add" parameterType="firstnews.domain.Image">
+        INSERT INTO image (type,image,link) VALUES (#{type},#{image},#{link})
+    </insert>
+
+
+
+<!--
+    <parameterMap type="firstnews.domain.Image" id="image">
+        <parameter property="type" resultMap="image"/>
+        <parameter property="image" resultMap="image"/>
+        <parameter property="link" resultMap="image"/>
+    </parameterMap>
+
+    <resultMap type="firstnews.domain.Image" id="image">
+        <id property="id" column="id"/>
+        <result property="type" column="type"/>
+        <result property="link" column="link"/>
+        <result property="image" column="image"/>
+    </resultMap>
+    -->
+</mapper>
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="firstnews.dao.NewsDAO">
+    <!--根据id查询得到一个News对象-->
+    <select id="getByid" parameterType="int" resultType="firstnews.domain.News">
+        SELECT *
+        FROM news
+        WHERE id = #{id}
+    </select>
+    <!--根据int参数倒序查询得到length=n的News[]-->
+    <select id="getByn" parameterType="int"
+            resultType="firstnews.domain.News">
+        SELECT *
+        FROM news
+        ORDER BY id DESC
+        LIMIT 0, #{n}
+    </select>
+    <!--根据传入的String参数在title和detail中搜索-->
+    <select id="search" parameterType="String"
+            resultType="firstnews.domain.News">
+        SELECT *
+        FROM news
+        WHERE detail LIKE CONCAT('%', #{detail}, '%') OR title LIKE CONCAT('%', #{name}, '%')
+    </select>
+    <!--将审核通过的放进news表-->
+    <insert id="add" parameterType="firstnews.domain.News">
+        INSERT INTO news (name, title, detail, image) VALUES (#{name}, #{title}, #{detail}, #{image})
+    </insert>
+    <!--根据传入的List参数在title和detail中搜索-->
+    <select id="searchList" resultType="firstnews.domain.News">
+        select * from news
+        <where>
+            (<foreach collection="list" item="item"
+                      open="detail like" separator="or detail like">#{item}</foreach>)
+            or
+            (<foreach collection="list" item="item"
+                      open="title like" separator="or title like">#{item}</foreach>)
+        </where>
+    </select>
+
+    <!--
+    <parameterMap type="firstnews.domain.News" id="News">
+        <parameter property="title" resultMap="News"/>
+        <parameter property="image" resultMap="News"/>
+        <parameter property="detail" resultMap="News"/>
+        <parameter property="name" resultMap="News"/>
+    </parameterMap>
+
+    <resultMap type="firstnews.domain.News" id="News">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="detail" column="detail"/>
+        <result property="image" column="image"/>
+        <result property="name" column="name"/>
+    </resultMap>
+    -->
+</mapper>
+
+
+
+
+
+
+

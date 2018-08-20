@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+-->
+<mapper namespace="firstnews.dao1.ContributeDAO">
+
+    <!--倒序搜索N条pass=1的contribute-->
+    <select id="getByPass" parameterType="int" resultType="firstnews.domain.ContributeDO">
+        SELECT *
+        FROM contribute
+        WHERE pass = 1
+        ORDER BY id DESC
+        LIMIT 0, #{n}
+    </select>
+
+
+
+
+</mapper>
+
+
+
+
+
+
+

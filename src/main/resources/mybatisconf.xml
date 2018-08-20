@@ -1,51 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC"/>
-            <!-- 配置数据库连接信息 -->
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://192.168.1.107:3306/dddd?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123"/>
-            </dataSource>
-        </environment>
 
-        <environment id="work">
-            <transactionManager type="JDBC"/>
-            <!-- 配置数据库连接信息 -->
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://118.24.10.36:3306/dddd"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123"/>
-            </dataSource>
-        </environment>
-
-        <environment id="local">
-            <transactionManager type="JDBC"/>
-            <!-- 配置数据库连接信息 -->
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/dddd?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123"/>
-            </dataSource>
-        </environment>
-
-    </environments>
 
     <mappers>
         <!-- 注册userMapper.xml文件，
 19         userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
-        <mapper resource="FirstNews/mybatis/newsmapper.xml"/>
-        <mapper resource="FirstNews/mybatis/usermapper.xml"/>
-        <mapper resource="FirstNews/mybatis/contributemapper.xml"/>
-        <mapper resource="FirstNews/mybatis/workmapper.xml"/>
-        <mapper resource="FirstNews/mybatis/imagemapper.xml"/>
-
+        <mapper resource="firstnews/mybatis/newsmapper.xml"/>
+        <mapper resource="firstnews/mybatis/usermapper.xml"/>
+        <mapper resource="firstnews/mybatis/contributemapper.xml"/>
+        <mapper resource="firstnews/mybatis/workmapper.xml"/>
+        <mapper resource="firstnews/mybatis/imagemapper.xml"/>
+        <mapper class="firstnews.dao1.ContributeDAO"/>
     </mappers>
 
 </configuration>
+
+
