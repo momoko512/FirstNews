@@ -22,9 +22,9 @@
         <AsyncLogger name="org" level="DEBUG" />
 
         <root level="DEBUG">
-         <!--
+<!--
             <appender-ref ref="Console"/>
-            -->
+-->
             <appender-ref ref="Logs"/>
 
         </root>

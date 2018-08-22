@@ -1,5 +1,8 @@
 package firstnews.domain;
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
+
 
 public class Contribute implements Serializable {
 

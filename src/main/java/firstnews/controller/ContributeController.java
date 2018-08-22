@@ -3,10 +3,9 @@ package firstnews.controller;
 
 import firstnews.dao.ContributeDAO;
 import firstnews.domain.Contribute;
+import firstnews.service.ContributeServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,12 +14,13 @@ public class ContributeController {
 
     @Autowired
     private ContributeDAO contributeDAO;
+    @Autowired
+    private ContributeServer contributeServer;
 
     //首页获取n条pass=1的contribute
     @GetMapping("home/{n}")
     public final ResponseModel<List<Contribute>> getByPass(@PathVariable Integer n) {
-        List<Contribute> list = contributeDAO.getByPass(n);
-        return ResponseModel.SUCCESS(list);
+       return contributeServer.getByPass(n);
     }
     //根据ID获取contribute
     @GetMapping("id")

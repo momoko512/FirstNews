@@ -2,6 +2,7 @@ package firstnews.dao;
 
 import firstnews.domain.Contribute;
 import org.apache.ibatis.annotations.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

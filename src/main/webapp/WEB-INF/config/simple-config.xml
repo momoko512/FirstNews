@@ -13,7 +13,7 @@
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd"
 >
-    <context:component-scan base-package="firstnews.controller"/>
+    <context:component-scan base-package="firstnews"/>
     <mvc:annotation-driven/>
     <mvc:resources location="/public/image/" mapping="/public/image/**"/>
     <mvc:resources location="/public/css/" mapping="/public/css/**"/>
@@ -42,7 +42,7 @@
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url"
-                  value="jdbc:mysql://192.168.1.112:3306/dddd?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
+                  value="jdbc:mysql://localhost:3306/dddd?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
         <property name="username" value="root"/>
         <property name="password" value="123"/>
         <!-- 初始化连接大小 -->
